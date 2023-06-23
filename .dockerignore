@@ -1,0 +1,23 @@
+# Ignore all files
+*
+
+# Don't ignore nugetconfig
+!./NuGet.Config
+# Don't ignore src projects
+!src/Athena.Econ/**
+!src/Athena.Common/**
+# Use Athena.Medusa project
+!src/Athena.Medusa/**
+# Use AthenaBot project
+!src/AthenaBot/**
+# Use AthenaBot.Coordinator project
+!src/AthenaBot.Coordinator/**
+# Use Generators project
+!src/AthenaBot.Generators/**
+# Use Ayu stuff
+!src/ayu/**
+!docker-entrypoint.sh
+
+# ignore bin and obj folders in projects
+src/**/bin/*
+src/**/obj/*

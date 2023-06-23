@@ -1,0 +1,235 @@
+h:
+  - help
+  - h
+gencmdlist:
+  - gencmdlist
+modules:
+  - modules
+  - mdls
+commands:
+  - commands
+  - cmds
+logserver:
+  - logserver
+logignore:
+  - logignore
+fwclear:
+  - fwclear
+leave:
+  - leave
+delmsgoncmd:
+  - delmsgoncmd
+  - dmc
+restart:
+  - restart
+die:
+  - die
+remind:
+  - remind
+reminddelete:
+  - reminddelete
+  - remindrm
+  - reminddel
+remindlist:
+  - remindlist
+  - remindl
+  - remindlst
+serverinfo:
+  - serverinfo
+  - sinfo
+channelinfo:
+  - channelinfo
+  - cinfo
+roleinfo:
+  - roleinfo
+  - rinfo
+userinfo:
+  - userinfo
+  - uinfo
+filterlist:
+  - filterlist
+  - fl
+filterword:
+  - filterword
+  - fw
+srvrfilterwords:
+  - srvrfilterwords
+  - sfw
+lstfilterwords:
+  - lstfilterwords
+  - lfw
+verbose:
+  - verbose
+  - v
+quoteadd:
+  - quoteadd
+  - .
+quoteprint:
+  - quoteprint
+  - ..
+quoteshow:
+  - quoteshow
+  - qshow
+quotesearch:
+  - quotesearch
+  - qsearch
+quoteid:
+  - quoteid
+  - qid
+quotedelete:
+  - quotedelete
+  - qdel
+quotedeleteauthor:
+  - quotedeleteauthor
+  - qdelauth
+save:
+  - save
+load:
+  - load
+streamadd:
+  - streamadd
+  - sta
+  - stadd
+streamremove:
+  - streamremove
+  - strm
+streamsclear:
+  - streamsclear
+  - stclear
+streamlist:
+  - streamlist
+  - stl
+  - streamslist
+streamoffline:
+  - streamoffline
+  - sto
+  - stoff
+streamonlinedelete:
+  - streamonlinedelete
+  - stondel
+streammessage:
+  - streammsg
+  - stm
+  - stmsg
+streammessageall:
+  - streammsgall
+  - stma
+  - stmsga
+streamcheck:
+  - streamcheck
+  - stc
+delallquotes:
+  - delallquotes
+  - daq
+  - delallq
+listquotes:
+  - listquotes
+  - liqu
+logevents:
+  - logevents
+log:
+  - log
+stringsreload:
+  - stringsreload
+shardstats:
+  - shardstats
+restartshard:
+  - restartshard
+timezones:
+  - timezones
+timezone:
+  - timezone
+globalcommand:
+  - globalcommand
+  - gcmd
+globalmodule:
+  - globalmodule
+  - gmod
+prefix:
+  - prefix
+defprefix:
+  - defprefix
+config:
+  - config
+  - conf
+configreload:
+  - configreload
+  - creload
+  - confreload
+  - crel
+feed:
+  - feed
+  - feedadd
+feedremove:
+  - feedremove
+  - feedrm
+  - feeddel
+feedlist:
+  - feedlist
+  - feeds
+# AthenaExpressions
+exprtoggleglobal:
+  - exprtoggleglobal
+  - extg
+exprreact:
+  - exreact
+  - exr
+exprad:
+  - exprad
+  - exad
+exprat:
+  - exprat
+  - exat
+exprdm:
+  - exprdm
+  - exdm
+exprca:
+  - exprca
+  - exca
+exprsreload:
+  - expreload
+  - exrel
+expradd:
+  - expradd
+  - exadd
+  - exa
+  - acr
+expraddserver:
+  - expradds
+  - exadds
+  - exas
+  - expraddserver
+exprlist:
+  - exprlist
+  - exl
+  - exprli
+  - exlist
+  - exli
+  - lcr
+exprshow:
+  - exprshow
+  - exs
+  - exshow
+  - scr
+exprdelete:
+  - exprdel
+  - exd
+  - exdel
+  - dcr
+exprdeleteserver:
+  - exprdelserv
+  - exds
+  - exdelserv
+exprclear:
+  - exprclear
+  - exc
+  - exclear
+expredit:
+  - expredit
+  - exe
+  - exedit
+  - ecr
+exprsimport:
+  - eximport
+exprsexport:
+  - exexport

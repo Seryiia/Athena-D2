@@ -1,0 +1,82 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{04929013-5BAB-42B0-B9B2-8F2BB8F16AF2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0B2F1537-4BF0-422B-A0DD-8F9CCEFB340F}"
+	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.md = CHANGELOG.md
+		Dockerfile = Dockerfile
+		LICENSE.md = LICENSE.md
+		NuGet.Config = NuGet.Config
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AthenaBot", "src\AthenaBot\AthenaBot.csproj", "{45EC1473-C678-4857-A544-07DFE0D0B478}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Athena.Common", "src\Athena.Common\Athena.Common.csproj", "{A6022F5F-A764-4D3F-847B-36F0391FF659}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AthenaBot.Coordinator", "src\AthenaBot.Coordinator\AthenaBot.Coordinator.csproj", "{E93F8D7B-1D13-4617-BF81-DA7956E95065}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AthenaBot.Generators", "src\AthenaBot.Generators\AthenaBot.Generators.csproj", "{72CF5224-8F8F-4B82-8570-579CDA37C9B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		GlobalAthena|Any CPU = GlobalAthena|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45EC1473-C678-4857-A544-07DFE0D0B478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45EC1473-C678-4857-A544-07DFE0D0B478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45EC1473-C678-4857-A544-07DFE0D0B478}.GlobalAthena|Any CPU.ActiveCfg = Release|Any CPU
+		{45EC1473-C678-4857-A544-07DFE0D0B478}.GlobalAthena|Any CPU.Build.0 = Release|Any CPU
+		{45EC1473-C678-4857-A544-07DFE0D0B478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45EC1473-C678-4857-A544-07DFE0D0B478}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6022F5F-A764-4D3F-847B-36F0391FF659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6022F5F-A764-4D3F-847B-36F0391FF659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6022F5F-A764-4D3F-847B-36F0391FF659}.GlobalAthena|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6022F5F-A764-4D3F-847B-36F0391FF659}.GlobalAthena|Any CPU.Build.0 = Debug|Any CPU
+		{A6022F5F-A764-4D3F-847B-36F0391FF659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6022F5F-A764-4D3F-847B-36F0391FF659}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E93F8D7B-1D13-4617-BF81-DA7956E95065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E93F8D7B-1D13-4617-BF81-DA7956E95065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E93F8D7B-1D13-4617-BF81-DA7956E95065}.GlobalAthena|Any CPU.ActiveCfg = Debug|Any CPU
+		{E93F8D7B-1D13-4617-BF81-DA7956E95065}.GlobalAthena|Any CPU.Build.0 = Debug|Any CPU
+		{E93F8D7B-1D13-4617-BF81-DA7956E95065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E93F8D7B-1D13-4617-BF81-DA7956E95065}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72CF5224-8F8F-4B82-8570-579CDA37C9B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72CF5224-8F8F-4B82-8570-579CDA37C9B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72CF5224-8F8F-4B82-8570-579CDA37C9B1}.GlobalAthena|Any CPU.ActiveCfg = Debug|Any CPU
+		{72CF5224-8F8F-4B82-8570-579CDA37C9B1}.GlobalAthena|Any CPU.Build.0 = Debug|Any CPU
+		{72CF5224-8F8F-4B82-8570-579CDA37C9B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72CF5224-8F8F-4B82-8570-579CDA37C9B1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{45EC1473-C678-4857-A544-07DFE0D0B478} = {04929013-5BAB-42B0-B9B2-8F2BB8F16AF2}
+		{A6022F5F-A764-4D3F-847B-36F0391FF659} = {04929013-5BAB-42B0-B9B2-8F2BB8F16AF2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F3F555C-855F-4BE8-B526-D062D3E8ACA4}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+EndGlobal
