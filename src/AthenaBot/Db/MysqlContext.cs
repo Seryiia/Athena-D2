@@ -8,7 +8,7 @@ public sealed class MysqlContext : AthenaContext
     private readonly string _connStr;
     private readonly string _version;
 
-    public MysqlContext(string connStr = "Server=localhost;Port=3306;Uid=d2deko;Pwd=Daewyn93;Database=d2deko", string version = "8.0")
+    public MysqlContext(string connStr = "Server=localhost;Port=3306;Uid=local;Pwd=replacePass;Database=athena", string version = "8.0")
     {
         _connStr = connStr;
         _version = version;
