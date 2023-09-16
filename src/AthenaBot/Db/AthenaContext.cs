@@ -16,6 +16,8 @@ public abstract class AthenaContext : DbContext
     public DbSet<Reminder> Reminders { get; set; }
     public DbSet<AthenaExpression> Expressions { get; set; }
     public DbSet<DiscordUser> DiscordUser { get; set; }
+
+    public DbSet<AthenaImage> AthenaImages { get; set; }
     
     public DbSet<StreamOnlineMessage> StreamOnlineMessages { get; set; }
 
@@ -31,6 +33,14 @@ public abstract class AthenaContext : DbContext
         var quoteEntity = modelBuilder.Entity<Quote>();
         quoteEntity.HasIndex(x => x.GuildId);
         quoteEntity.HasIndex(x => x.Keyword);
+
+        #endregion
+
+        #region Images
+
+        var imageEntity = modelBuilder.Entity<AthenaImage>();
+        imageEntity.HasIndex(x => x.GuildId);
+        imageEntity.HasIndex(x => x.Name);
 
         #endregion
 

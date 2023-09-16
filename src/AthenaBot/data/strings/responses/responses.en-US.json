@@ -1061,5 +1061,19 @@
   "sticker_missing_name": "Please specify a name for the sticker.",
   "thread_deleted": "Thread Deleted",
   "thread_created": "Thread Created",
-  "supported_languages": "Supported Languages"
+  "supported_languages": "Supported Languages",
+
+  "images_no_attachment": "No image was attached to the command",
+  "images_too_many": "Too many attachemnts to command",
+  "images_not_downloaded": "Could not fetch image from attachment",
+  "images_unsupported": "Unsupported image format. Use JPEG or PNG",
+  "images_not_saved": "Could not save image",
+  "images_not_image": "Attachment is not a valid image",
+  "images_not_deleted": "Image could not be deleted",
+  "images_not_added": "Image could not be added",
+  "images_not_removed": "Image could not be removed",
+  "images_added": "Image added as {0}",
+  "images_removed": "Image {0} removed",
+  "images_not_found": "Image {0} not found",
+  "images_could_not_be_displayed": "Image {0} could not be displayed"
 }

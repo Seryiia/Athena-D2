@@ -35,9 +35,9 @@ dmHelpTextKeywords:
 # This is the response for the .h command
 helpText: |-
   {
-    "title": "D2Deko Help!",
+    "title": "Athena Help!",
     "color": 53380,
-    "thumbnail": "https://i.imgur.com/nKYyqMK.png",
+    "thumbnail": "https://static.wikia.nocookie.net/finalfantasy/images/3/3b/Athena_Twisted.png",
     "fields": [
       {
         "name": "Useful help commands",
