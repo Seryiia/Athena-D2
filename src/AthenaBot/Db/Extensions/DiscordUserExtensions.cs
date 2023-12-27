@@ -1,7 +1,6 @@
 ﻿#nullable disable
 using LinqToDB;
 using LinqToDB.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
 using AthenaBot.Db.Models;
 using AthenaBot.Services.Database;
 

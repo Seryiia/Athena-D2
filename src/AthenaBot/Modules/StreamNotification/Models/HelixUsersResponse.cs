@@ -1,5 +1,4 @@
 ﻿#nullable disable
-using AthenaBot;
 using System.Text.Json.Serialization;
 
 namespace AthenaBot.Modules.StreamNotification.Models;

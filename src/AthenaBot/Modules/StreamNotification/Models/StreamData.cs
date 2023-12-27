@@ -1,5 +1,4 @@
 #nullable disable
-using AthenaBot;
 using AthenaBot.Db.Models;
 
 namespace AthenaBot.Modules.StreamNotification.Models;

@@ -1,7 +1,4 @@
 #nullable disable
-using AthenaBot;
-using System.Text;
-
 namespace AthenaBot.Modules.Info;
 
 public class Info : AthenaModule<INService>

@@ -58,6 +58,49 @@ namespace AthenaBot.Migrations
                     b.ToTable("athenaimages", (string)null);
                 });
 
+            modelBuilder.Entity("AthenaBot.Db.Models.Birthday", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    b.Property<ulong>("ChannelId")
+                        .HasColumnType("bigint unsigned")
+                        .HasColumnName("channelid");
+
+                    b.Property<DateTime?>("DateAdded")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("dateadded");
+
+                    b.Property<ushort>("Day")
+                        .HasColumnType("smallint unsigned")
+                        .HasColumnName("day");
+
+                    b.Property<ulong>("GuildId")
+                        .HasColumnType("bigint unsigned")
+                        .HasColumnName("guildid");
+
+                    b.Property<ushort>("Month")
+                        .HasColumnType("smallint unsigned")
+                        .HasColumnName("month");
+
+                    b.Property<ulong>("UserId")
+                        .HasColumnType("bigint unsigned")
+                        .HasColumnName("userid");
+
+                    b.HasKey("Id")
+                        .HasName("pk_birthdays");
+
+                    b.HasIndex("GuildId")
+                        .HasDatabaseName("ix_birthdays_guildid");
+
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("ix_birthdays_userid");
+
+                    b.ToTable("birthdays", (string)null);
+                });
+
             modelBuilder.Entity("AthenaBot.Db.Models.DiscordUser", b =>
                 {
                     b.Property<int>("Id")
@@ -172,6 +215,48 @@ namespace AthenaBot.Migrations
                         .HasName("pk_streamonlinemessages");
 
                     b.ToTable("streamonlinemessages", (string)null);
+                });
+
+            modelBuilder.Entity("AthenaBot.Db.Models.VanityRole", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    b.Property<DateTime?>("DateAdded")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("dateadded");
+
+                    b.Property<int?>("GuildConfigId")
+                        .HasColumnType("int")
+                        .HasColumnName("guildconfigid");
+
+                    b.Property<ulong>("GuildId")
+                        .HasColumnType("bigint unsigned")
+                        .HasColumnName("guildid");
+
+                    b.Property<ulong>("RoleId")
+                        .HasColumnType("bigint unsigned")
+                        .HasColumnName("roleid");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int")
+                        .HasColumnName("type");
+
+                    b.HasKey("Id")
+                        .HasName("pk_vanityroles");
+
+                    b.HasIndex("GuildConfigId")
+                        .HasDatabaseName("ix_vanityroles_guildconfigid");
+
+                    b.HasIndex("GuildId")
+                        .HasDatabaseName("ix_vanityroles_guildid");
+
+                    b.HasIndex("Type")
+                        .HasDatabaseName("ix_vanityroles_type");
+
+                    b.ToTable("vanityroles", (string)null);
                 });
 
             modelBuilder.Entity("AthenaBot.Services.Database.Models.AthenaExpression", b =>
@@ -514,6 +599,14 @@ namespace AthenaBot.Migrations
                         .HasConstraintName("fk_followedstream_guildconfigs_guildconfigid");
                 });
 
+            modelBuilder.Entity("AthenaBot.Db.Models.VanityRole", b =>
+                {
+                    b.HasOne("AthenaBot.Services.Database.Models.GuildConfig", null)
+                        .WithMany("VanityRoles")
+                        .HasForeignKey("GuildConfigId")
+                        .HasConstraintName("fk_vanityroles_guildconfigs_guildconfigid");
+                });
+
             modelBuilder.Entity("AthenaBot.Services.Database.Models.DelMsgOnCmdChannel", b =>
                 {
                     b.HasOne("AthenaBot.Services.Database.Models.GuildConfig", null)
@@ -563,6 +656,8 @@ namespace AthenaBot.Migrations
                     b.Navigation("FilteredWords");
 
                     b.Navigation("FollowedStreams");
+
+                    b.Navigation("VanityRoles");
                 });
 #pragma warning restore 612, 618
         }

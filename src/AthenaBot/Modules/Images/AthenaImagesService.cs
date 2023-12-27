@@ -1,15 +1,7 @@
 #nullable disable
-using Microsoft.EntityFrameworkCore;
-using AthenaBot.Common.ModuleBehaviors;
-using AthenaBot.Db;
 using AthenaBot.Db.Models;
-using AthenaBot.Modules.StreamNotification.Models;
-using AthenaBot.Services.Database.Models;
 using LinqToDB.EntityFrameworkCore;
 using LinqToDB;
-using static LinqToDB.Reflection.Methods.LinqToDB.Insert;
-using System.Net;
-using Discord;
 
 namespace AthenaBot.Modules.AthenaImages;
 
@@ -137,6 +129,25 @@ public sealed class AthenaImagesService : INService
         catch (Exception ex)
         {
             Log.Warning($"Image fetch failed with error: {ex.Message}");
+            return null;
+        }
+    }
+
+    public async Task<List<string>> FetchImageList(ulong guildId)
+    {
+        // Fetch from database
+        try
+        {
+            await using (var ctx = _db.GetDbContext())
+            {
+                return ctx.AthenaImages
+                    .Where(x => x.GuildId == guildId)
+                    .Select(x => x.Name).ToList();
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Warning($"Image list fetch failed with error: {ex.Message}");
             return null;
         }
     }

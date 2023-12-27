@@ -1,7 +1,6 @@
 #nullable disable
 using CommandLine;
 using AthenaBot.Common.ModuleBehaviors;
-using AthenaBot.Modules.Administration.Services;
 
 namespace AthenaBot.Modules.Help.Services;
 

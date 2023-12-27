@@ -1,6 +1,4 @@
-﻿using Discord;
-
-namespace AthenaBot.Common;
+﻿namespace AthenaBot.Common;
 
 public interface IEmbedBuilder
 {

@@ -1,6 +1,4 @@
 #nullable disable
-using AthenaBot;
-
 namespace AthenaBot.Modules.Administration;
 
 public readonly struct ServerFilterSettings

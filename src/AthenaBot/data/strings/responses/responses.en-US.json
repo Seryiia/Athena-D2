@@ -1075,5 +1075,23 @@
   "images_added": "Image added as {0}",
   "images_removed": "Image {0} removed",
   "images_not_found": "Image {0} not found",
-  "images_could_not_be_displayed": "Image {0} could not be displayed"
+  "images_could_not_be_displayed": "Image {0} could not be displayed",
+  "images_none": "No images have been added :(",
+
+  "role_configuration_failed": "Role could not be configured",
+  "role_type_not_found": "Role type not found",
+  "vanity_role_configured": "Successfully configured role {0}",
+  "invalid_date": "Date invalid, please enter in form mm/dd",
+  "birthday_config_failed": "Failed to configure birthday",
+  "birthday_added": "Successfully added birthday for {0}",
+  "birthday_not_found": "Birthday not found",
+  "birthday_delete_failed": "Failed to delete birthday",
+  "birthday_removed": "Successfully removed birthday for {0}",
+  "no_role_configured": "No role configured for this action, please configure the role",
+  "role_misconfigured": "Role misconfigured for this action, please reconfigure the role",
+  "could_not_add_role": "Failed to add role to {0}",
+  "vanity_role_not_found": "Failed to find the configured role",
+  "peached": "Enjoy your peach {0}!",
+  "go_to_bed": "# GO TO BED {0}! <:bap:854966002742853683>"
+
 }

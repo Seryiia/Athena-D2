@@ -1,6 +1,5 @@
 #nullable disable
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using AthenaBot.Db.Models;
 using AthenaBot.Services.Database.Models;
 
@@ -18,8 +17,12 @@ public abstract class AthenaContext : DbContext
     public DbSet<DiscordUser> DiscordUser { get; set; }
 
     public DbSet<AthenaImage> AthenaImages { get; set; }
+
+    public DbSet<VanityRole> VanityRoles { get; set; }
     
     public DbSet<StreamOnlineMessage> StreamOnlineMessages { get; set; }
+
+    public DbSet<Birthday> Birthdays { get; set; }
 
 
     #region Mandatory Provider-Specific Values
@@ -41,6 +44,22 @@ public abstract class AthenaContext : DbContext
         var imageEntity = modelBuilder.Entity<AthenaImage>();
         imageEntity.HasIndex(x => x.GuildId);
         imageEntity.HasIndex(x => x.Name);
+
+        #endregion
+
+        #region VanityRoles
+
+        var vanityRoleEntity = modelBuilder.Entity<VanityRole>();
+        vanityRoleEntity.HasIndex(x => x.GuildId);
+        vanityRoleEntity.HasIndex(x => x.Type);
+
+        #endregion
+
+        #region Birthdays
+
+        var birthdayEntity = modelBuilder.Entity<Birthday>();
+        birthdayEntity.HasIndex(x => x.GuildId);
+        birthdayEntity.HasIndex(x => x.UserId);
 
         #endregion
 
@@ -92,11 +111,4 @@ public abstract class AthenaContext : DbContext
                     .HasOne(x => x.GuildConfig);
         #endregion
     }
-
-#if DEBUG
-    private static readonly ILoggerFactory _debugLoggerFactory = LoggerFactory.Create(x => x.AddConsole());
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseLoggerFactory(_debugLoggerFactory);
-#endif
 }

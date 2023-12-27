@@ -235,3 +235,5 @@ exprsexport:
   - exexport
 imageshow:
   - i
+imagerandom:
+  - ir

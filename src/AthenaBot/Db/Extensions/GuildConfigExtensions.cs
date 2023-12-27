@@ -12,7 +12,8 @@ public static class GuildConfigExtensions
         => configs.AsQueryable()
                   .AsSplitQuery()
                   .Include(gc => gc.FollowedStreams)
-                  .Include(gc => gc.DelMsgOnCmdChannels);
+                  .Include(gc => gc.DelMsgOnCmdChannels)
+                  .Include(gc => gc.VanityRoles);
 
     public static IEnumerable<GuildConfig> GetAllGuildConfigs(
         this DbSet<GuildConfig> configs,

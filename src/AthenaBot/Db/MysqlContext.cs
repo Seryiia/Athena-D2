@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using AthenaBot.Db.Models;
 
 namespace AthenaBot.Services.Database;
 

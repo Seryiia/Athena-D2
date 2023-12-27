@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Primitives;
 using AthenaBot.Common.Yml;
-using Newtonsoft.Json;
 
 namespace AthenaBot.Services;
 

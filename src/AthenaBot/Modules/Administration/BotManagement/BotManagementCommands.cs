@@ -1,6 +1,5 @@
 #nullable disable
 using AthenaBot.Modules.Administration.Services;
-using AthenaBot.Services.Database.Models;
 
 namespace AthenaBot.Modules.Administration;
 

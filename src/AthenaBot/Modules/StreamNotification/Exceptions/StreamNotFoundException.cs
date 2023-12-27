@@ -1,6 +1,4 @@
 #nullable disable
-using AthenaBot;
-
 namespace AthenaBot.Modules.StreamNotification.Exceptions;
 
 public class StreamNotFoundException : Exception

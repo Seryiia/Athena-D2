@@ -1,5 +1,4 @@
 #nullable disable
-using AthenaBot.Common.TypeReaders.Models;
 using AthenaBot.Modules.Administration.Services;
 
 namespace AthenaBot.Modules.Administration;

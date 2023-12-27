@@ -10,6 +10,7 @@ public partial class AthenaImages : AthenaModule<INService>
     public partial class AthenaImageCommands : AthenaModule<AthenaImagesService>
     {
         private readonly DbService _db;
+        private readonly Random _random = new();
 
         public AthenaImageCommands(DbService db)
             => _db = db;
@@ -104,6 +105,50 @@ public partial class AthenaImages : AthenaModule<INService>
             {
                 await ReplyErrorLocalizedAsync(strs.images_could_not_be_displayed(name));
             }
+        }
+
+        [Cmd]
+        [RequireContext(ContextType.Guild)]
+        public async Task ImageList()
+        {
+            List<string> imageNames = await _service.FetchImageList(ctx.Guild.Id);
+            if (imageNames is null || imageNames.Count == 0)
+            {
+                await ReplyErrorLocalizedAsync(strs.images_none);
+                return;
+            }
+
+            string textList = "";
+            foreach (string imageName in imageNames)
+            {
+                textList += $"{imageName}\n\n";
+            }
+
+            var embed = new EmbedBuilder
+            {
+                Title = "Images",
+                Color = Color.Green,
+                Description = textList
+            }.Build();
+
+            await ReplyAsync("", false, embed);
+        }
+
+        [Cmd]
+        [RequireContext(ContextType.Guild)]
+        public async Task ImageRandom()
+        {
+            // First get all names
+            List<string> imageNames = await _service.FetchImageList(ctx.Guild.Id);
+            if (imageNames is null || imageNames.Count == 0)
+            {
+                await ReplyErrorLocalizedAsync(strs.images_none);
+                return;
+            }
+
+            // Grab a random index to display
+            int index = _random.Next(imageNames.Count);
+            await ImageShow(imageNames[index]);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿#nullable disable warnings
-using AthenaBot;
 using AthenaBot.Common.Yml;
 using AthenaBot.Db;
 using AthenaBot.Services.Database.Models;

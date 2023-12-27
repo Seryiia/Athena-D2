@@ -15,6 +15,8 @@ public class GuildConfig : DbEntity
     //stream notifications
     public HashSet<FollowedStream> FollowedStreams { get; set; } = new();
 
+    public HashSet<VanityRole> VanityRoles { get; set; } = new();
+
     //public bool FilterLinks { get; set; }
     //public HashSet<FilterLinksChannelId> FilterLinksChannels { get; set; } = new HashSet<FilterLinksChannelId>();
 
