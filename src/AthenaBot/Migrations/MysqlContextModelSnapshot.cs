@@ -547,6 +547,43 @@ namespace AthenaBot.Migrations
                     b.ToTable("quotes", (string)null);
                 });
 
+            modelBuilder.Entity("AthenaBot.Services.Database.Models.QuoteAliases", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    b.Property<string>("Alias")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)")
+                        .HasColumnName("alias");
+
+                    b.Property<DateTime?>("DateAdded")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("dateadded");
+
+                    b.Property<ulong>("GuildId")
+                        .HasColumnType("bigint unsigned")
+                        .HasColumnName("guildid");
+
+                    b.Property<string>("ReferencedKeyword")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("referencedkeyword");
+
+                    b.HasKey("Id")
+                        .HasName("pk_quotealiases");
+
+                    b.HasIndex("Alias")
+                        .HasDatabaseName("ix_quotealiases_alias");
+
+                    b.HasIndex("GuildId")
+                        .HasDatabaseName("ix_quotealiases_guildid");
+
+                    b.ToTable("quotealiases", (string)null);
+                });
+
             modelBuilder.Entity("AthenaBot.Services.Database.Models.Reminder", b =>
                 {
                     b.Property<int>("Id")

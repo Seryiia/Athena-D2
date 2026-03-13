@@ -34,7 +34,7 @@ public sealed class AthenaImagesService : INService
             return ImageErrorCodes.NotImage;
         }
 
-        if(attachment.ContentType is not "image/jpeg" and not "image/png" and not "image/gif")
+        if(attachment.ContentType is not "image/jpeg" and not "image/png" and not "image/gif" and not "image/webp")
         {
             return ImageErrorCodes.UnsupportedFormat;
         }

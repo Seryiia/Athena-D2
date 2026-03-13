@@ -51,6 +51,9 @@ public sealed class AthenaVanityRoleService : INService
         _db = db;
         _client = client;
 
+        _birthdayTimer.Elapsed += (sender, e) => BirthdayTimerExpired();
+        _birthdayTimer.AutoReset = false;
+
         BirthdayTimerExpired();
     }
 
@@ -61,14 +64,13 @@ public sealed class AthenaVanityRoleService : INService
 
         // Run at 9am every day
         DateTime targetTime;
-        if (now.Hour > 9)
+        if (DateTime.Today.AddHours(9) > now)
         {
-            // This doesn't account for DST but running one day at 8am and one day at 10am isn't a big deal
-            targetTime = DateTime.Today.AddDays(1).AddHours(9);
+            targetTime = DateTime.Today.AddHours(9);   
         }
         else
         {
-            targetTime = DateTime.Today.AddHours(9);
+            targetTime = DateTime.Today.AddDays(1).AddHours(9);
         }
 
         TimeSpan diff = targetTime - now;
@@ -78,8 +80,6 @@ public sealed class AthenaVanityRoleService : INService
 
         _birthdayTimer.Stop();
         _birthdayTimer.Interval = timeToDelay;
-        _birthdayTimer.Elapsed += (sender, e) => BirthdayTimerExpired();
-        _birthdayTimer.AutoReset = false;
         _birthdayTimer.Start();
     }
 

@@ -1,6 +1,7 @@
 #nullable disable
 using Microsoft.EntityFrameworkCore;
 using AthenaBot.Services.Database.Models;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace AthenaBot.Db;
 

@@ -1,9 +1,11 @@
 ﻿#nullable disable warnings
+using AngleSharp.Common;
 using AthenaBot.Common.Yml;
 using AthenaBot.Db;
 using AthenaBot.Services.Database.Models;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
+using static LinqToDB.Reflection.Methods.LinqToDB.Insert;
 
 namespace AthenaBot.Modules.Quotes;
 
@@ -71,7 +73,9 @@ public class Quotes : AthenaModule<INService>
                             => $"`#{q.Id}` {Format.Bold(q.Keyword.SanitizeAllMentions()),-20} by {q.AuthorName.SanitizeAllMentions()}")));
             }
             else
+            {
                 await ReplyErrorLocalizedAsync(strs.quotes_page_none);
+            }
         }
 
         [Cmd]
@@ -82,6 +86,18 @@ public class Quotes : AthenaModule<INService>
                 return;
 
             keyword = keyword.ToUpperInvariant();
+
+            // Check if keyword is an alias
+            await using (var uow = _db.GetDbContext())
+            {
+                // If this is an alias, we need to find the keyword it references
+                QuoteAliases? referencedKeywordObj = await uow.QuoteAliases.GetKeywordForAlias(ctx.Guild.Id, keyword);
+                if (referencedKeywordObj != null)
+                {
+                    // This is the keyword to look for the other aliases for
+                    keyword = referencedKeywordObj.ReferencedKeyword;
+                }
+            }
 
             Quote quote;
             await using (var uow = _db.GetDbContext())
@@ -204,12 +220,49 @@ public class Quotes : AthenaModule<INService>
 
         [Cmd]
         [RequireContext(ContextType.Guild)]
+        public async Task QuoteAddAlias(string keyword, [Leftover] string alias)
+        {
+            if (string.IsNullOrWhiteSpace(keyword) || string.IsNullOrWhiteSpace(alias))
+                return;
+
+            keyword = keyword.ToUpperInvariant();
+            alias = alias.ToUpperInvariant();
+
+            QuoteAliases qa;
+            await using (var uow = _db.GetDbContext())
+            {
+                uow.QuoteAliases.Add(qa = new()
+                {
+                    GuildId = ctx.Guild.Id,
+                    Alias = alias,
+                    ReferencedKeyword = keyword
+                });
+                await uow.SaveChangesAsync();
+            }
+
+            await ReplyConfirmLocalizedAsync(strs.quote_added_alias(alias, keyword));
+        }
+
+        [Cmd]
+        [RequireContext(ContextType.Guild)]
         public async Task QuoteAdd(string keyword, [Leftover] string text)
         {
             if (string.IsNullOrWhiteSpace(keyword) || string.IsNullOrWhiteSpace(text))
                 return;
 
             keyword = keyword.ToUpperInvariant();
+
+            // Check if keyword is an alias
+            await using (var uow = _db.GetDbContext())
+            {
+                // If this is an alias, we need to find the keyword it references
+                QuoteAliases? referencedKeywordObj = await uow.QuoteAliases.GetKeywordForAlias(ctx.Guild.Id, keyword);
+                if (referencedKeywordObj != null)
+                {
+                    // This is the keyword to look for the other aliases for
+                    keyword = referencedKeywordObj.ReferencedKeyword;
+                }
+            }
 
             Quote q;
             await using (var uow = _db.GetDbContext())
@@ -255,6 +308,36 @@ public class Quotes : AthenaModule<INService>
                 await SendConfirmAsync(response);
             else
                 await SendErrorAsync(response);
+        }
+
+        [Cmd]
+        [RequireContext(ContextType.Guild)]
+        [RequireOwner()]
+        public async Task QuoteRenameKeyword(string oldKeyword, string newKeyword)
+        {
+            if (string.IsNullOrWhiteSpace(oldKeyword) || string.IsNullOrWhiteSpace(newKeyword))
+                return;
+
+            oldKeyword = oldKeyword.ToUpperInvariant();
+            newKeyword = newKeyword.ToUpperInvariant();
+
+            var retCode = -1;
+            await using (var uow = _db.GetDbContext())
+            {
+                uow.Quotes.Where(x => x.GuildId == ctx.Guild.Id && x.Keyword.ToUpper() == oldKeyword)
+                .ToList()
+                .ForEach(x => x.Keyword = newKeyword);
+                retCode = await uow.SaveChangesAsync();
+            }
+
+            if (retCode > 0)
+            {
+                await ReplyConfirmLocalizedAsync(strs.quote_keyword_renamed(oldKeyword, newKeyword));
+            }
+            else
+            {
+                await ReplyErrorLocalizedAsync(strs.quotes_not_round(oldKeyword));
+            }
         }
 
         [Cmd]

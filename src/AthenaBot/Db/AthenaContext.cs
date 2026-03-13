@@ -12,6 +12,7 @@ public abstract class AthenaContext : DbContext
     public DbSet<GuildConfig> GuildConfigs { get; set; }
 
     public DbSet<Quote> Quotes { get; set; }
+    public DbSet<QuoteAliases> QuoteAliases { get; set; }
     public DbSet<Reminder> Reminders { get; set; }
     public DbSet<AthenaExpression> Expressions { get; set; }
     public DbSet<DiscordUser> DiscordUser { get; set; }
@@ -36,6 +37,10 @@ public abstract class AthenaContext : DbContext
         var quoteEntity = modelBuilder.Entity<Quote>();
         quoteEntity.HasIndex(x => x.GuildId);
         quoteEntity.HasIndex(x => x.Keyword);
+
+        var quoteAliasesEntity = modelBuilder.Entity<QuoteAliases>();
+        quoteAliasesEntity.HasIndex(x => x.GuildId);
+        quoteAliasesEntity.HasIndex(x => x.Alias);
 
         #endregion
 
